@@ -1,0 +1,549 @@
+.offers-grid{
+	align-items: flex-start; 
+	display: flex; 
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: -12px;
+	margin-right: -12px;
+
+	.offer{
+		box-shadow: 0px 8px 16px rgba(84, 95, 122, 0.1);
+		border-radius: 16px;
+		flex-basis: 330px; 
+		margin: 0 12px 30px; 
+		max-width: 330px; 
+		text-align: center;
+
+		.offer-title{
+			border-radius: 16px 16px 0px 0px;
+			padding: 16px 8px;
+			position: relative;
+
+			h2{font-size: 26px;}
+
+			.offer-title__badge{
+				align-items: center;
+				background-color: white;
+				box-shadow: 0px 3px 7px rgba(84, 95, 122, 0.1);
+				border-radius: 0 0 16px 16px;
+				display: flex;
+				flex-wrap: wrap;
+				font-size: 12px;
+				font-weight: 600;
+				height: 28px;
+				justify-content: center;
+				left: 50%;
+				padding: 0px 15px;
+				position: absolute;
+				top: -11px;
+				transform: translateX(-50%);
+				width: 210px;
+				z-index: 1;
+
+				&:before, &:after{
+					border-style: solid	;
+					content: "";
+					height: 0;
+					position: absolute;
+					top: 0;
+					width: 0;
+					z-index: 0;
+				}
+				&:before{
+					left: -7px;
+					border-width: 0 0 11px 7px;
+					border-color: transparent transparent #D8D8D8 transparent;
+				}
+				&:after{
+					border-width: 11px 0 0 7px;
+					border-color: transparent transparent transparent #D8D8D8;
+					right: -7px;
+				}
+			}
+		}
+
+		.offer-contents{
+			background-color: white;
+			border-radius: 0px 0px 16px 16px;
+			padding: 8px 16px 24px;
+
+			@media only screen and (max-width:359px) {
+				padding: 8px 8px 24px;
+			}
+		}
+
+		.offer-promo{
+			align-items: center;
+			border: solid 2px transparent;
+			border-radius: 16px;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			height: 120px;
+			justify-content: center;
+			margin-bottom: 40px;
+			padding: 8px 12px;
+			position: relative;
+
+			@media only screen and (max-width:359px) {
+				padding: 8px;
+			}
+
+			*:not(.promo-tag){
+				position: relative;
+				z-index: 2;
+			}
+
+			.h4{
+				font-size: 18px;
+			}
+			
+			p{font-size: 13px;}
+
+			.promo-tag{
+				align-items: center;
+				border: solid 8px white;
+				border-radius: 100px;
+				bottom: -22px;
+				display: inline-flex;
+				font-size: 13px;
+				font-weight: 600;
+				height: 44px;
+				justify-content: center;
+				left: 50%;
+				position: absolute;
+				transform: translateX(-50%);
+				width: 142px;
+				z-index: 1;
+			}
+		}
+
+		&.offer-v1000, &.offer-v500, &.offer-v300, &.offer-v200{
+			.offer-title{
+				background: linear-gradient(180deg, #FFCD02 0%, #FFDF5F 100%);
+
+				p, .velocidad{color: black;}
+			}
+			.offer-promo{
+				border-color: $yellow-color;
+
+				*{color: black;}
+
+				.promo-tag{
+					background-color: $yellow-color;
+					color: black;
+				}
+			}
+		}
+		&.offer-v100{
+			.offer-title{
+				background: linear-gradient(180deg, #BF0F64 0%, #ED318C 100%);
+
+				p, .velocidad{color: white;}
+				.offer-title__badge{color: $primary-color;}
+			}
+			.offer-promo{
+				border-color: $primary-color;
+
+				*{color: $primary-color;}
+
+				.promo-tag{
+					background-color: $primary-color;
+					color: white;
+				}
+			}
+		}
+		&.offer-v60, &.offer-v50{
+			.offer-title{
+				background: linear-gradient(360deg, #0AD5D0 -11.11%, #00B0AC 96.83%);
+
+				p, .velocidad, .offer-title__badge{color: #063232;}
+			}
+			.offer-promo{
+				border-color: $aqua-color;
+
+				*{color: #063232;}
+
+				.promo-tag{
+					background-color: $aqua-color;
+					color: #063232;
+				}
+			}
+		}
+		&.offer-v30, &.offer-v25, &.offer-v20{
+			.offer-title{
+				background: linear-gradient(180deg, #F47E28 0%, #FC9850 100%);
+
+				p, .velocidad, .offer-title__badge{color: #4F2903;}
+			}
+			.offer-promo{
+				border-color: #F47E28;
+
+				*{color: #4F2903;}
+
+				.promo-tag{
+					background-color: #F47E28;
+					color: #4F2903;
+				}
+			}
+		}
+
+		&.offer-packtv{
+			order: 2;
+			.offer-title{
+				background: linear-gradient(180deg, #F47E28 0%, #FC9850 100%);
+
+				p{color: #4F2903;}
+			}
+		}
+		&.offer-izzitvhdplus{
+			.offer-title{
+				background: linear-gradient(360deg, #0AD5D0 -11.11%, #00B0AC 96.83%);
+
+				p{color: #063232;}
+			}
+		}
+
+		.offer-pricing{
+			font-size: 18px;
+			
+			.h2{font-size: 37px;}
+
+			> span{
+				vertical-align: middle;
+				
+				&:first-of-type{
+					&:not(:last-of-type){
+						text-decoration: line-through;
+					}
+				}
+
+				+ span{margin-left: 8px;}
+			}
+		}
+
+		.offer-new-pricing{
+			margin-bottom: 16px;
+
+			*{color: black!important;}
+
+			.offer-price-block{
+				display: flex; align-items: center; justify-content: center;
+
+				> div:only-child{flex-grow: 1;}
+
+				> div + div{margin-left: 8px;}
+
+				p, .text-fs-56{line-height: 1.2;}
+
+				.reg-price{
+					position: relative;
+
+					&:after{content: ""; position: absolute; top: 5px; left: 0; width: 100%; height: 2px; background-color: $primary-color; transform: rotate(22deg); transform-origin: left bottom; z-index: 0; pointer-events: none;}
+				}
+			}
+		}
+
+		.contract-text{margin-top: 16px; margin-bottom: 0; font-size: 13px; font-weight: 500;}
+
+		.offer-streaming{
+			background-color: black; display: none; align-items: center; justify-content: center; height: 48px; margin: -8px -16px 8px; padding: 0 8px;
+
+			&.active{display: flex;}
+
+			.streaming-addon{
+				display: none; text-align: center; width: 33.3333333%;
+
+				&.active{display: block;}
+
+				&.vix-addon{
+					img{width: 67px;}
+				}
+				&.netflix-addon{
+					img{width: 75px;}
+				}
+				&.disneyplus-addon{
+					img{width: 52px;}
+				}
+			}
+		}
+
+		.offer-video-info-wrapper{
+			background-color: #F2F2F8; display: flex; align-items: center; justify-content: center; height: 40px; margin: -8px -16px 16px;
+
+			img{width: 104px;}
+		}
+
+		.offer-tv-channels{margin: 45px 0;}
+	}
+
+	&.has-discount-offers{
+		.offer{
+			.offer-pricing{
+				+ p{align-items: center; display: flex; justify-content: center	; min-height: 48px;}
+			}
+		}
+	}
+
+	&.offers-grid--offers-internet{
+		.offer{
+			.offer-contents{padding-top: 40px;}
+		}
+	}
+
+	&.offers-grid--offers-tv{
+		.offer{
+			.offer-contents{padding-top: 40px;}
+		}
+	}
+
+	&.offers-grid--other{
+		.offer{
+			&.offer-packtv, &.offer-izzitvhdplus{
+				.offer-contents{
+					padding-top: 40px;
+				}
+			}
+		}
+	}
+}
+
+.package-selectors-wrapper{
+	margin: 0 auto 24px; max-width: 836px; position: relative; display: flex; justify-content: center; flex-wrap: wrap;
+
+	.package-type{
+		border: solid 3px $yellow-color; border-radius: 8px; padding: 40px 16px 24px; position: relative; flex-shrink: 0; flex-basis: calc(33.333333% - 24px);
+
+		&.package-type--3p{flex-basis: calc(66.6666667% - 24px);}
+
+		@media only screen and (max-width:767px){
+			flex-grow: 1; flex-basis: 100%; padding: 32px 12px 16px;
+		}
+
+		+ .package-type{
+			@media only screen and (min-width:768px){
+				margin-left: 24px;
+			}
+			@media only screen and (max-width:767px){
+				margin-top: 32px;
+			}
+		}
+
+		.package-type__label{
+			background: $yellow-color; border-radius: 4px; color: black; display: inline-flex; align-items: center; font-size: 13px; font-weight: 600; height: 38px; padding: 0 15px; position: absolute; top: -19px; left: 50%; transform: translateX(-50%); z-index: 1; white-space: nowrap;
+
+			&:before, &:after{content: ""; position: absolute; top: 14px; height: 7px; z-index: 0; pointer-events: none; width: 4px; background-color: white;}
+
+			&:before{left: -4px;}
+			&:after{right: -4px;}
+		}
+	}
+}
+
+.package-selectors{
+	display: flex; justify-content: center; flex-wrap: wrap;
+
+	.single-package{
+		width: 220px;
+
+		@media only screen and (min-width:768px) and (max-width:1024px){
+			width: 200px;
+		}
+		@media only screen and (max-width:767px){
+			width: 100%;
+		}
+		
+		+ .single-package{
+			@media only screen and (min-width:768px){
+				margin-left: 16px;
+			}
+			@media only screen and (max-width:767px){
+				margin-top: 16px;
+			}
+		}
+
+		label{
+			background-color: white; border: solid 3px $primary-color; border-radius: 8px; color: $primary-color; cursor: pointer; padding: 32px 16px 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; height: 129px; position: relative; transition: all 0.2s linear;
+
+			@media only screen and (max-width:767px){
+				height: 72px; padding: 8px;
+			}
+
+			.package-check__indicator{
+				position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background-color: white; border: solid 2px $primary-color; border-radius: 26px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+
+				@media only screen and (max-width:767px){
+					display: none;
+				}
+
+				img{opacity: 0; pointer-events: none; width: 16px; transition: all 0.2s linear;}
+			}
+
+			p{color: $primary-color; margin: 0;}
+
+			.package-icons{
+				line-height: 1.0;
+
+				svg{
+					width: 32px; height: 32px;
+
+					+ svg{margin-left: 8px;}
+				}
+			}
+
+			&:hover, &:focus{
+				transform: scale(1.03);
+			}
+		}
+
+		input{
+			position: absolute; opacity: 0; visibility: hidden;
+
+			&:checked{
+				+ label{
+					background-color: $primary-color;
+
+					.package-check__indicator{
+						img{opacity: 1;}
+					}
+
+					p{color: white;}
+
+					.package-icons{
+						color: white;
+					}
+				}
+			}
+		}
+	}
+}
+
+.addon-selectors{
+	display: flex; justify-content: center; flex-wrap: wrap; margin: 0 auto 48px;
+
+	.single-addon{
+		width: 220px;
+
+		@media only screen and (min-width:768px) and (max-width:1024px){
+			width: 200px;
+		}
+		@media only screen and (max-width:767px){
+			width: 100%;
+		}
+		
+		+ .single-addon{
+			@media only screen and (min-width:768px){
+				margin-left: 16px;
+			}
+			@media only screen and (max-width:767px){
+				margin-top: 24px;
+			}
+		}
+
+		label{
+			background-color: white; border: solid 3px transparent; border-radius: 8px; color: $primary-color; cursor: pointer; padding: 32px 16px 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; height: 129px; position: relative; transition: all 0.2s linear;
+
+			@media only screen and (max-width:767px){
+				height: 84px; padding: 20px 16px 8px;
+			}
+
+			.addon-check__indicator{
+				position: absolute; top: -18px; left: 50%; transform: translateX(-50%); background-color: white; border: solid 2px transparent; border-radius: 26px; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+
+				@media only screen and (max-width:767px){
+					top: -14px; width: 28px; height: 28px;
+				}
+
+				svg{opacity: 0; pointer-events: none; width: 16px; height: 16px; transition: all 0.2s linear;}
+			}
+
+			.addon-logo{
+				img{
+					max-height: 48px; width: 100px;
+				}
+			}
+		}
+
+		input{
+			position: absolute; opacity: 0; visibility: hidden;
+
+			&:checked{
+				+ label{
+					.addon-check__indicator{
+						svg{opacity: 1;}
+					}
+
+					.addon-logo{
+						img{
+							&.unchecked-logo{display: none;}
+						}
+					}
+				}
+			}
+
+			&:not(:checked){
+				+ label{
+					.addon-logo{
+						img{
+							&.checked-logo{display: none;}
+						}
+					}
+				}
+			}
+		}
+
+		&.single-addon--vix{
+			label{
+				border-color: #FF5900;
+
+				.addon-check__indicator{
+					border-color: #FF5900;
+
+					svg{color: #FF5900;}
+				}
+			}
+
+			input:checked{
+				+ label{
+					background-color: #FF5900;
+				}
+			}
+		}
+
+		&.single-addon--netflix{
+			label{
+				border-color: #E50914;
+
+				.addon-check__indicator{
+					border-color: #E50914;
+
+					svg{color: #E50914;}
+				}
+			}
+
+			input:checked{
+				+ label{
+					background-color: #E50914;
+				}
+			}
+		}
+
+		&.single-addon--disneyplus{
+			label{
+				border-color: #020E40;
+
+				.addon-check__indicator{
+					border-color: #020E40;
+
+					svg{color: #020E40;}
+				}
+			}
+
+			input:checked{
+				+ label{
+					background-color: #020E40;
+				}
+			}
+		}
+	}
+}
